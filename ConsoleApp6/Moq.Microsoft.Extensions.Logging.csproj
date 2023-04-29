@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<UsingTask TaskName="CheckTryBlockTask" AssemblyFile="path\to\CheckTryBlockTask.dll" />
+
+	<Target Name="BeforeBuild">
+		<CheckTryBlockTask SourceCode="$(MSBuildProjectDirectory)\Program.cs" MethodName="Execute" />
+	</Target>
+
+
+	<PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+	<LangVersion>preview</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="Moq" Version="4.18.4" />
+	</ItemGroup>
+</Project>
